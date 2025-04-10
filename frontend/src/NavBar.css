@@ -1,0 +1,42 @@
+/* Navbar Container */
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;  /* Pushes the first item (logo) left and the last item (button) right */
+    padding: 0 1rem; /* Optional: adds horizontal padding */
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  /* Ensure links inside the navbar are flex items */
+  .navbar-container a {
+    display: flex;
+    align-items: center;
+    text-decoration: none; /* Optional: remove underline if needed */
+  }
+  
+  /* Navbar Logo Styling */
+  .navbar-logo {
+    margin: 0.2%;
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+  }
+  
+  /* Data Button Styling */
+  .data-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 40px;
+    padding: 0.3rem 2rem;
+    color: #fff;
+    height: 35px;
+    min-height: 30px;
+    background-color: #036ad8;  /* Example background color */
+    border-radius: 4px;         /* Optional: rounded corners */
+  }

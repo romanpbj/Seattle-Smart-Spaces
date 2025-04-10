@@ -1,0 +1,43 @@
+.found-parking-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .parking-grid {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;  /* Constrain grid width to 1200px */
+    width: 100%;
+    justify-content: left;
+    gap: 20px; /* Optional gap between items */
+  }
+  
+  .parking-item {
+    flex: 0 0 calc(25% - 20px); /* 25% width of the container; adjust gap as needed */
+    box-sizing: border-box;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Ensure images are responsive */
+  .parking-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+  
+  /* Style the button for directions */
+  .parking-item button {
+    padding: 8px 12px;
+    font-size: 14px;
+    background-color: #020405;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 8px;
+  }
+  

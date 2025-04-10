@@ -1,0 +1,4 @@
+venv/
+.env
+cleaned_merged_parking_data.csv
+parking_model.pkl

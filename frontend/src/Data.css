@@ -1,0 +1,47 @@
+/* Overall container centers the content vertically */
+.data-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden; /* optional safety net */
+  }
+  
+  /* Container for graphs; lays them out side by side */
+  .graphs {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Add a little breathing room between images */
+    max-width: 100%; /* Prevents overflow */
+    flex-wrap: wrap; /* Allows images to stack on smaller screens */
+    padding: 0 10px; /* Prevents edge clipping on narrow screens */
+    box-sizing: border-box;
+  }
+  
+  /* Scale the images down so they fit side by side */
+  .graph-image {
+    width: 48%; /* Keeps both graphs under 100% combined width */
+    height: auto;
+    object-fit: contain;
+  }
+  
+  /* Paragraph container with fixed width */
+  .text-containerg {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    width: 1200px;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  .text-container {
+    display: flex;
+    justify-content: center;
+    width: 1200px;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+  
+  .sample-image {
+    margin-top: 3%;
+  }

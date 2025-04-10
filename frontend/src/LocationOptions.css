@@ -1,0 +1,58 @@
+/* Overall container: centered, 1200px wide with some horizontal whitespace */
+.options-container {
+    width: 1200px;
+    margin: 0 auto;       /* Center the container on the page */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  /* General style for each box */
+  .option-box {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  /* For the first two boxes, set them to be half-width (accounting for gap) */
+  .option-box:not(.full-width) {
+    flex: 0 0 calc(50% - 20px);
+  }
+  
+  /* The full-width class forces the element to take 100% of the container width */
+  .full-width {
+    flex: 0 0 98.3%;
+  }
+  
+  /* Additional styling for inputs and text */
+  .input-one, 
+  .input-two {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+  
+  .address-line {
+    text-align: center;
+    margin-bottom: 15px;
+    background-color: #e9e7e7;
+    padding: 4px;
+  }
+  
+  button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    background-color: #020405;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    opacity: 0.9;
+  }
