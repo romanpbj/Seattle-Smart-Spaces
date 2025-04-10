@@ -97,7 +97,6 @@ def get_parking():
 
     data = request.get_json()
 
-    # User provided inputs
     user_lat = float(data.get("lat"))
     user_lon = float(data.get("long"))
     user_HotOs = data.get("isWeekend")
@@ -113,35 +112,26 @@ def get_parking():
     elif user_Month in [9, 10, 11]:
         user_Season = 4
     else:
-        # Optional: Handle unexpected month values
         user_Season = None
 
-
-    # Use NearestNeighbors to find candidate parking spots near the user's location
     parking_coords = parkingData[['Latitude', 'Longitude']].values
     nbrs = NearestNeighbors(n_neighbors=1200, algorithm='ball_tree').fit(parking_coords)
-    distances, indices = nbrs.kneighbors(np.array([[user_lat, user_lon]]))
+    indices = nbrs.kneighbors(np.array([[user_lat, user_lon]]))
 
-    # Get candidate parking spots from the dataset (do not drop duplicates)
     candidate_spots = parkingData.iloc[indices[0]].copy()
 
-    # Override the candidate records with the user-provided temporal info
     candidate_spots['HotOs'] = user_HotOs
     candidate_spots['Hour'] = user_Hour
     candidate_spots['Month'] = user_Month
     candidate_spots['Season'] = user_Season
 
-    # Prepare the features for prediction
     X_candidates = candidate_spots[feature_columns]
 
-    # Predict the occupancy ratio for these candidate spots
     predicted_ratios = pipeline.predict(X_candidates)
     candidate_spots['PredictedOccupancyRatio'] = predicted_ratios
 
-    # Now, group by the location (Latitude and Longitude) to aggregate multiple predictions
     grouped = candidate_spots.groupby(['Latitude', 'Longitude'], as_index=False)['PredictedOccupancyRatio'].mean()
 
-    # Sort by predicted occupancy ratio (lowest first)
     best_candidates = grouped.sort_values(by='PredictedOccupancyRatio').reset_index(drop=True)
 
     print("Top recommended parking spots:")
