@@ -3,6 +3,7 @@ Seattle Smart Spaces
   Seattle Smart Spaces is a full-stack web application that uses machine learning to predict parking availability in Seattle. It provides real-time suggestions for low-occupancy parking spots using historical data, spatial   proximity, and temporal context (hour, month, season).
 
 Features:
+
   Predicts real-time parking occupancy based on user location and time.
   Integrates Google Maps Tile API for live map visuals.
   Feedback system to track user-reported accuracy.
@@ -29,6 +30,7 @@ How It Works:
     Results rendered with Google tile images + navigation links.
   
 Data:
+
   Thousands of rows of Seattle parking data are read from a CSV
   Removes outliers and unnecessary data like RestrictedParkingZones
   Parses coordinates from WKT strings
@@ -36,12 +38,14 @@ Data:
   Outputs a cleaned_merged_parking_data.csv file
 
 Model Training (parkingMode.py):
+
   Uses Random Forest Regressor inside a scikit-learn pipeline.
   Preprocesses categorical data with OneHotEncoder.
   Trains on features like: HotOs, Hour, Month, Season, Longitude, Latitude
   Saves trained model to parking_model.pkl using joblib.
 
 Feedback & Accuracy Tracking:
+
   Users can submit whether they found parking at the suggested spot.
   Feedback stored in SQLite via SQLAlchemy.
   /api/accuracy calculates percent of correct predictions.
