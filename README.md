@@ -1,6 +1,8 @@
 Seattle Smart Spaces
 
-  Seattle Smart Spaces is a full-stack web application that uses machine learning to predict parking availability in Seattle. It provides real-time suggestions for low-occupancy parking spots using historical data, spatial   proximity, and temporal context (hour, month, season).
+  Seattle Smart Spaces is a full-stack web application that uses machine learning to predict parking availability in Seattle. 
+  It provides real-time suggestions for low-occupancy parking spots using historical data, spatial
+  proximity, and time context (hour, month, season).
 
 How It Works:
   1. Users enter an address or use their GPS location. App fetches current time, month, and determines weekend status.
@@ -18,7 +20,7 @@ How It Works:
   
 Gathering the Data:
 
-  1.Thousands of rows of Seattle parking data are read from a CSV
+  1. 500 thousand rows of Seattle parking data are read from a CSV
   
   2. Removes outliers and unnecessary data like RestrictedParkingZones
   
@@ -46,9 +48,5 @@ Feedback & Accuracy Tracking:
   
   3. /api/accuracy calculates percent of correct predictions.
 
+  4. Model retraining with user feedback. 
 
-Future Improvements:
-
-  1. Add user authentication for saving preferences.
-  
-  2. Model retraining with user feedback.
