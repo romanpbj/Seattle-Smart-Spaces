@@ -10,7 +10,6 @@ function Feedback(){
     const {lat, lon} = location.state
     const [review, setReview] = useState("")
     const [message, setMessage] = useState("")
-    const navigate = useNavigate()
 
     function handleYes(){
 

@@ -6,7 +6,7 @@ import '../FoundParking.css'
 
 function Found() {
   const location = useLocation();
-  const {parking, userLat, userLong} = location.state; // Assumes data is an array like [[lat, lon, occupancy], ...]
+  const {parking, userLat, userLong} = location.state;
   const [images, setImages] = useState([]);
   const didFetchRef = useRef(false);
   let tileSet = new Set()
@@ -43,14 +43,9 @@ function Found() {
         const googleData = latLonToTile(lat, lon, 17);
 
         if (googleData !== null){
-                axios
-                .get("http://127.0.0.1:5000/api/google", {
-                params: { x: googleData.x, y: googleData.y, zoom: 17 },
-                responseType: "blob", // Expect binary data
-                })
+                axios.get("http://127.0.0.1:5000/api/google", {params: { x: googleData.x, y: googleData.y, zoom: 17 }, responseType: "blob"})
                 .then((response) => {
                 const imageUrl = URL.createObjectURL(response.data);
-                // Append the image URL to the state array
                 setImages((prevImages) => [...prevImages, imageUrl]);
                 setPredictions((prevPredictions) => [...prevPredictions, poc])
                 setRoute((road) => [...road, `https://www.google.com/maps/dir/?api=1&origin=${userLat},${userLong}&destination=${lat},${lon}&travelmode=driving`])

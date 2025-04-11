@@ -116,7 +116,7 @@ def get_parking():
 
     parking_coords = parkingData[['Latitude', 'Longitude']].values
     nbrs = NearestNeighbors(n_neighbors=1200, algorithm='ball_tree').fit(parking_coords)
-    indices = nbrs.kneighbors(np.array([[user_lat, user_lon]]))
+    distances, indices = nbrs.kneighbors(np.array([[user_lat, user_lon]]))
 
     candidate_spots = parkingData.iloc[indices[0]].copy()
 
