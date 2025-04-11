@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "../LocationOptions.css";
+import "../CSS/LocationOptions.css";
 
 function Park() {
   const [street, setStreet] = useState("");

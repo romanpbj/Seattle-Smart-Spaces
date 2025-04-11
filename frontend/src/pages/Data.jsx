@@ -1,4 +1,4 @@
-import "../Data.css"
+import "../CSS/Data.css"
 import axios from "axios";
 import { useState, useEffect } from "react";
 
