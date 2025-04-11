@@ -48,5 +48,5 @@ Feedback & Accuracy Tracking:
   
   3. /api/accuracy calculates percent of correct predictions.
 
-  4. Model retraining with user feedback. 
+  4. Model retrained with user feedback. 
 
